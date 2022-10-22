@@ -1,7 +1,8 @@
-package com.example.rawgame
+package com.example.rawgame.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.rawgame.R
 
 class MainActivity : AppCompatActivity() {
    override fun onCreate(savedInstanceState: Bundle?) {
