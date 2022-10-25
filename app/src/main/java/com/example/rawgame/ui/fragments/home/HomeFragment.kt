@@ -8,6 +8,11 @@ import android.view.ViewGroup
 import com.example.rawgame.R
 import com.example.rawgame.databinding.FragmentHomeBinding
 
+/**
+ * @author : Mingaleev D
+ * @data : 25/10/2022
+ */
+
 class HomeFragment : Fragment() {
 
    private var mBinding:FragmentHomeBinding? = null
