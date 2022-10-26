@@ -1,4 +1,4 @@
-package com.example.rawgame.ui.fragments.adapter
+package com.example.rawgame.model.base
 
 /**
  * @author : Mingaleev D

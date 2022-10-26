@@ -1,17 +1,18 @@
 package com.example.rawgame.ui.fragments.home
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import com.example.rawgame.R
 import com.example.rawgame.databinding.FragmentHomeBinding
 import com.example.rawgame.model.GameThinItem
 import com.example.rawgame.model.GameWideItem
 import com.example.rawgame.model.GamesHorizontalItem
 import com.example.rawgame.ui.fragments.adapter.HomeDelegates
-import com.example.rawgame.ui.fragments.adapter.ListItem
+import com.example.rawgame.ui.fragments.viewmodel.HomeViewModel
 import com.hannesdorfmann.adapterdelegates4.ListDelegationAdapter
 
 /**
@@ -23,6 +24,8 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
    private var mBinding: FragmentHomeBinding? = null
    private val binding get() = mBinding!!
+
+   private val viewModel by viewModels<HomeViewModel>()
 
    private val adapter = ListDelegationAdapter(
       HomeDelegates.gamesHorizontalDelegate
@@ -41,23 +44,13 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
       with(binding) {
          recyclerViewHome.adapter = adapter
 
-         adapter.apply {
-            items = listOf(
-               GamesHorizontalItem(
-                  title = "Wide title",
-                  games = IntRange(1, 20).map { GameWideItem(it.toLong(), "Game title $it") }
-               ),
-               GamesHorizontalItem(
-                  title = "Thin title",
-                  games = IntRange(1, 20).map { GameThinItem(it.toLong(), "Game title $it") }
-               ),
-               GamesHorizontalItem(
-                  title = "Wide title",
-                  games = IntRange(1, 20).map { GameWideItem(it.toLong(), "Game title $it") }
-               )
-            )
-            notifyDataSetChanged()
+         viewModel.data.observe(viewLifecycleOwner) {
+            adapter.apply {
+               items = it
+               notifyDataSetChanged()
+            }
          }
+
       }
    }
 
