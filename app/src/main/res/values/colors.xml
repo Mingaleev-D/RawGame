@@ -9,4 +9,5 @@
   <color name="white">#fffafafa</color>
 
   <color name="categoryTitleText">@color/white</color>
+  <color name="placeholder">#B8B7B7</color>
 </resources>

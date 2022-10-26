@@ -56,4 +56,13 @@ dependencies {
     implementation 'com.hannesdorfmann:adapterdelegates4-kotlin-dsl:4.3.2'
     implementation 'com.hannesdorfmann:adapterdelegates4-kotlin-dsl-viewbinding:4.3.2'
     implementation 'com.hannesdorfmann:adapterdelegates4:4.3.2'
+    // Lifecycle
+    def lifecycleVersion = "2.4.1"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycleVersion"
+    kapt "androidx.lifecycle:lifecycle-compiler:$lifecycleVersion"
+    // Coroutines
+    def coroutinesVersion = "1.5.2"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion"
 }

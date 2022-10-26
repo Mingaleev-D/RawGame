@@ -1,6 +1,6 @@
 package com.example.rawgame.model
 
-import com.example.rawgame.ui.fragments.adapter.ListItem
+import com.example.rawgame.model.base.ListItem
 
 data class GameWideItem(
    val id: Long,
