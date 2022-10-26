@@ -6,4 +6,5 @@ package com.example.rawgame.model.base
  */
 
 interface ListItem {
+   val itemId:Long
 }

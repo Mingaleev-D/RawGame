@@ -11,6 +11,7 @@ import com.example.rawgame.databinding.FragmentHomeBinding
 import com.example.rawgame.model.GameThinItem
 import com.example.rawgame.model.GameWideItem
 import com.example.rawgame.model.GamesHorizontalItem
+import com.example.rawgame.ui.fragments.adapter.HomeAdapter
 import com.example.rawgame.ui.fragments.adapter.HomeDelegates
 import com.example.rawgame.ui.fragments.viewmodel.HomeViewModel
 import com.hannesdorfmann.adapterdelegates4.ListDelegationAdapter
@@ -27,9 +28,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
    private val viewModel by viewModels<HomeViewModel>()
 
-   private val adapter = ListDelegationAdapter(
-      HomeDelegates.gamesHorizontalDelegate
-   )
+   private val adapter = HomeAdapter()
 
    override fun onCreateView(
       inflater: LayoutInflater, container: ViewGroup?,
@@ -45,12 +44,8 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
          recyclerViewHome.adapter = adapter
 
          viewModel.data.observe(viewLifecycleOwner) {
-            adapter.apply {
-               items = it
-               notifyDataSetChanged()
-            }
+            adapter.items = it
          }
-
       }
    }
 

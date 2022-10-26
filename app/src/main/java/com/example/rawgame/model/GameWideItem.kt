@@ -5,4 +5,7 @@ import com.example.rawgame.model.base.ListItem
 data class GameWideItem(
    val id: Long,
    val title: String
-) : ListItem
+) : ListItem {
+   override val itemId: Long
+      get() = id
+}
