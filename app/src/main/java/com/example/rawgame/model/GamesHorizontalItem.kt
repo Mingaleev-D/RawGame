@@ -6,6 +6,5 @@ data class GamesHorizontalItem(
    val title: String,
    val games: List<ListItem>
 ) : ListItem {
-   override val itemId: Long
-      get() = title.hashCode().toLong()
+   override val itemId: Long = title.hashCode().toLong()
 }

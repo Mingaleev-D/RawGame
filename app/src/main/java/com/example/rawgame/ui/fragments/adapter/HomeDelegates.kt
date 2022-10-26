@@ -1,5 +1,10 @@
 package com.example.rawgame.ui.fragments.adapter
 
+import android.os.Build
+import android.view.RoundedCorner
+import androidx.annotation.RequiresApi
+import com.bumptech.glide.Glide
+import com.example.rawgame.R
 import com.example.rawgame.databinding.*
 import com.example.rawgame.model.GameThinItem
 import com.example.rawgame.model.GameWideItem
@@ -33,12 +38,16 @@ object HomeDelegates {
          }
       }
 
+
     val wideGameDelegate =
       adapterDelegateViewBinding<GameWideItem, ListItem, ItemGameWideBinding>({ layoutInflater, root ->
          ItemGameWideBinding.inflate(layoutInflater, root, false)
       }) {
          bind {
-            binding.imageView.setBackgroundColor(item.hashCode())
+            Glide.with(binding.root)
+               .load(item.image)
+               .centerCrop()
+               .into(binding.imageView)
             binding.title = item.title
             binding.executePendingBindings()
          }
@@ -49,7 +58,10 @@ object HomeDelegates {
          ItemGameThinBinding.inflate(layoutInflater, root, false)
       }) {
          bind {
-            binding.imageView.setBackgroundColor(item.hashCode())
+            Glide.with(binding.root)
+               .load(item.image)
+               .centerCrop()
+               .into(binding.imageView)
             binding.title = item.title
             binding.executePendingBindings()
          }
